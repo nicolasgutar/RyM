@@ -1,0 +1,13 @@
+{% extends 'main/layouts/nav1.html' %}
+
+{% block content %}
+<h2>Publica una Noticia</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button>
+        Save
+    </button>
+</form>
+{% endblock %}

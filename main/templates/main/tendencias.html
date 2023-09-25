@@ -1,0 +1,19 @@
+{% extends 'main/layouts/nav1.html' %}
+
+{% block content %}
+
+<h1>En tendencia esta semana</h1>
+
+{% for noticia in noticias %}
+
+<div>
+    <a href = {{noticia.url}}><h3>{{noticia.titulo}}</h3></a>
+    <p>----------------------------</p>
+    <article>{{noticia.resumen}}</article>
+    <h5>{{noticia.fecha}}</h5>
+    <h5>{{noticia.tags}}</h5>
+    <h5>{{noticia.autor}}</h5>
+</div>
+{% endfor %}
+
+{% endblock %}
