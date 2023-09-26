@@ -7,16 +7,45 @@
 </head>
 
 <body>
-    <nav>
-        <ul>
-            <li><a href="/">Inicio</a></li>
-            <li><a href="#">Tendencias</a></li>
-            <li><a href="#">Tus noticias</a></li>
-            <li><a href="/publicar">Publicar</a></li>
-            <li><a href="/about">Acerca de</a></li>
-            <li><a href="#">Iniciar sesión</a></li>
-        </ul>
+    <nav style="padding: 0px;" class="navbar navbar-expand-lg bg-body-tertiary">
+        <div style="background-color: #77D4FC; flex-grow: 1" class="container-fluid">
+            <img src="C:\Users\cpari\OneDrive\Documentos\040 Simon\EIA\2023-2\Requisitos y modelos\Proyecto Noticio\logo noticio azul.png" class="imagen-logo">
+              <div class="contenedor-titulo">
+                <h1 class="title">NOTICIO</h1>
+                <p class="big-text">Las noticias que necesitas</p>
+              </div>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Tendencias</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Tus noticias</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Publicar</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Acerca de</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Iniciar sesión</a>
+                  </li>
+                </ul>
+                <form style="margin: 30px;" class="d-flex" role="search">
+                  <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
+                  <input class="btn btn-outline-success" type="submit" value="Buscar"></button>
+                </form>
+            </div>
+        </div>
     </nav>
+    <div style="background-color: #014664; width: 100%; height: 2.5vw;"></div>
+        <div class="contenedor-subtitulo">
+        <p class="subtitle">En tendencia esta semana</p>
+    </div>
     {% block content %}
     {% endblock %}
 </body>
