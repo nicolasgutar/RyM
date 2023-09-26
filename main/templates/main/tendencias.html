@@ -1,19 +1,39 @@
 {% extends 'main/layouts/nav1.html' %}
 
 {% block content %}
-
-<h1>En tendencia esta semana</h1>
-
-{% for noticia in noticias %}
-
-<div>
-    <a href = {{noticia.url}}><h3>{{noticia.titulo}}</h3></a>
-    <p>----------------------------</p>
-    <article>{{noticia.resumen}}</article>
-    <h5>{{noticia.fecha}}</h5>
-    <h5>{{noticia.tags}}</h5>
-    <h5>{{noticia.autor}}</h5>
+<div class="contenedor-subtitulo">
+    <p class="subtitle">En tendencia esta semana</p>
 </div>
-{% endfor %}
+<div class="fondo">
+    <div class="filtros">
+        <p class="subtitle2">Filtrar por temas:</p>
+        <form class="form-filtros">
+            <input type="checkbox" class="form-checkbox" id="eco">
+            <label for="eco" class="form-option">Economía</label><br><br>
+            <input type="checkbox" class="form-checkbox" id="nac">
+            <label for="nac" class="form-option">Nación</label><br><br>
+            <input type="checkbox" class="form-checkbox" id="dep">
+            <label for="dep" class="form-option">Deportes</label><br><br>
+            <input type="checkbox" class="form-checkbox" id="far">
+            <label for="far" class="form-option">Farándula</label><br><br>
+            <input type="checkbox" class="form-checkbox" id="pol">
+            <label for="pol" class="form-option">Política</label><br><br>
+            <input type="checkbox" class="form-checkbox" id="mun">
+            <label for="mun" class="form-option">Mundo</label><br><br>
+            <input type="checkbox" class="form-checkbox" id="op">
+            <label for="op" class="form-option">Opinión</label>
+        </form>
+    </div>
+    {% for noticia in noticias %}
+    <div>
+        <a href = {{noticia.url}}><h3>{{noticia.titulo}}</h3></a>
+        <p>----------------------------</p>
+        <article>{{noticia.resumen}}</article>
+        <h5>{{noticia.fecha}}</h5>
+        <h5>{{noticia.tags}}</h5>
+        <h5>{{noticia.autor}}</h5>
+    </div>
+    {% endfor %}
+</div>
 
 {% endblock %}
