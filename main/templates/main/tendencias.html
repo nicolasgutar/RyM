@@ -23,28 +23,30 @@
             <input type="checkbox" name = "Mundo" class="form-checkbox" id="mun">
             <label for="mun" class="form-option">Mundo</label><br><br>
             <input type="checkbox" name = "Opinion" class="form-checkbox" id="op">
-            <label for="op" class="form-option">Opinión</label>
+            <label for="op" class="form-option">Opinión</label><br><br>
             <input type="submit" value="aplicar">
         </form>
     </div>
-    {% for noticia in noticias %}
+    <div class="contenedor-noticias">
+        {% for noticia in noticias %}
 
-    {% if noticia.tags in applied_tags %}
-    <div>
-        {% if noticia.url == null %}
-        <a href = '/noticia/{{noticia.id}}'><h3>{{noticia.titulo}}</h3></a>
-        {% else %}
-        <a href = {{noticia.url}}><h3>{{noticia.titulo}}</h3></a>
+        {% if noticia.tags in applied_tags %}
+        <div>
+            {% if noticia.url == null %}
+            <a href = '/noticia/{{noticia.id}}'><h3>{{noticia.titulo}}</h3></a>
+            {% else %}
+            <a href = {{noticia.url}}><h3>{{noticia.titulo}}</h3></a>
+            {% endif %}
+            <p>----------------------------</p>
+            <article>{{noticia.resumen}}</article>
+            <h5>{{noticia.fecha}}</h5>
+            <h5>{{noticia.tags}}</h5>
+            <h5>{{noticia.autor}}</h5>
+        </div>
         {% endif %}
-        <p>----------------------------</p>
-        <article>{{noticia.resumen}}</article>
-        <h5>{{noticia.fecha}}</h5>
-        <h5>{{noticia.tags}}</h5>
-        <h5>{{noticia.autor}}</h5>
-    </div>
-    {% endif %}
 
-    {% endfor %}
+        {% endfor %}
+    </div>
 </div>
 
 {% endblock %}
