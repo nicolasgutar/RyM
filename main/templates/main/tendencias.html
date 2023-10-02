@@ -26,7 +26,11 @@
     </div>
     {% for noticia in noticias %}
     <div>
+        {% if noticia.url == null %}
+        <a href = '/noticia/{{noticia.id}}'><h3>{{noticia.titulo}}</h3></a>
+        {% else %}
         <a href = {{noticia.url}}><h3>{{noticia.titulo}}</h3></a>
+        {% endif %}
         <p>----------------------------</p>
         <article>{{noticia.resumen}}</article>
         <h5>{{noticia.fecha}}</h5>
