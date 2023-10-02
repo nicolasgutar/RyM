@@ -1,0 +1,17 @@
+{% extends 'main/layouts/nav1.html' %}
+
+{% block content %}
+<div class="contenedor-subtitulo">
+    <p class="subtitle">En tendencia esta semana</p>
+</div>
+
+<div>
+    <h2>{{noticia.titulo}}</h2>
+    <p>----------------------------</p>
+    <h5>{{noticia.fecha}}</h5>
+    <h5>{{noticia.tags}}</h5>
+    <h5>{{noticia.autor}}</h5>
+    <article>{{noticia.contenido}}</article>
+</div>
+
+{% endblock %}

@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Noticia
 from .forms import PublicarNoticia
 
@@ -23,4 +23,5 @@ def tendencias(request):
     return render(request, "main/tendencias.html", {'noticias':noticias})
 
 def noticia(request, id):
-    return render(request, "main/noticia.html", id)
+    noticia = get_object_or_404(Noticia,id=id)
+    return render(request, "main/noticia.html", {'noticia':noticia})
