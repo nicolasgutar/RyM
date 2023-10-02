@@ -24,24 +24,28 @@
             <label for="mun" class="form-option">Mundo</label><br><br>
             <input type="checkbox" name = "Opinion" class="form-checkbox" id="op">
             <label for="op" class="form-option">Opinión</label><br><br>
-            <input type="submit" value="aplicar">
+            <input type="submit" class="submit-btn" value="Aplicar">
         </form>
     </div>
     <div class="contenedor-noticias">
         {% for noticia in noticias %}
 
         {% if noticia.tags in applied_tags %}
-        <div>
+        <div class="noticia">
             {% if noticia.url == null %}
-            <a href = '/noticia/{{noticia.id}}'><h3>{{noticia.titulo}}</h3></a>
+            <a class="titulo-noticia" href = '/noticia/{{noticia.id}}'><h3>{{noticia.titulo}}</h3></a>
             {% else %}
-            <a href = {{noticia.url}}><h3>{{noticia.titulo}}</h3></a>
+            <a class="titulo-noticia" href = {{noticia.url}}><h3>{{noticia.titulo}}</h3></a>
             {% endif %}
             <p>----------------------------</p>
             <article>{{noticia.resumen}}</article>
-            <h5>{{noticia.fecha}}</h5>
-            <h5>{{noticia.tags}}</h5>
-            <h5>{{noticia.autor}}</h5>
+            <div class="info-noticia">
+                <p class="tag-noticia">{{noticia.tags}}</p>
+                <div>
+                    <p>{{noticia.autor}}</p>
+                    <p>{{noticia.fecha}}</p>
+                </div>
+            </div>
         </div>
         {% endif %}
 
