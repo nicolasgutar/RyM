@@ -7,33 +7,46 @@
 <div class="fondo">
     <div class="filtros">
         <p class="subtitle2">Filtrar por temas:</p>
-        <form class="form-filtros">
-            <input type="checkbox" class="form-checkbox" id="eco">
+        <form class="form-filtros" method = "get">
+            <input type="checkbox" name = "Economia" class="form-checkbox" id="eco">
             <label for="eco" class="form-option">Economía</label><br><br>
-            <input type="checkbox" class="form-checkbox" id="nac">
+            <input type="checkbox" name = "Industria" class="form-checkbox" id="ind">
+            <label for="ind" class="form-option">Industria</label><br><br>
+            <input type="checkbox" name = "Nacion" class="form-checkbox" id="nac">
             <label for="nac" class="form-option">Nación</label><br><br>
-            <input type="checkbox" class="form-checkbox" id="dep">
+            <input type="checkbox" name = "Deportes" class="form-checkbox" id="dep">
             <label for="dep" class="form-option">Deportes</label><br><br>
-            <input type="checkbox" class="form-checkbox" id="far">
+            <input type="checkbox" name = "Farandula" class="form-checkbox" id="far">
             <label for="far" class="form-option">Farándula</label><br><br>
-            <input type="checkbox" class="form-checkbox" id="pol">
+            <input type="checkbox" name = "Politica" class="form-checkbox" id="pol">
             <label for="pol" class="form-option">Política</label><br><br>
-            <input type="checkbox" class="form-checkbox" id="mun">
+            <input type="checkbox" name = "Mundo" class="form-checkbox" id="mun">
             <label for="mun" class="form-option">Mundo</label><br><br>
-            <input type="checkbox" class="form-checkbox" id="op">
-            <label for="op" class="form-option">Opinión</label>
+            <input type="checkbox" name = "Opinion" class="form-checkbox" id="op">
+            <label for="op" class="form-option">Opinión</label><br><br>
+            <input type="submit" value="aplicar">
         </form>
     </div>
-    {% for noticia in noticias %}
-    <div>
-        <a href = {{noticia.url}}><h3>{{noticia.titulo}}</h3></a>
-        <p>----------------------------</p>
-        <article>{{noticia.resumen}}</article>
-        <h5>{{noticia.fecha}}</h5>
-        <h5>{{noticia.tags}}</h5>
-        <h5>{{noticia.autor}}</h5>
+    <div class="contenedor-noticias">
+        {% for noticia in noticias %}
+
+        {% if noticia.tags in applied_tags %}
+        <div>
+            {% if noticia.url == null %}
+            <a href = '/noticia/{{noticia.id}}'><h3>{{noticia.titulo}}</h3></a>
+            {% else %}
+            <a href = {{noticia.url}}><h3>{{noticia.titulo}}</h3></a>
+            {% endif %}
+            <p>----------------------------</p>
+            <article>{{noticia.resumen}}</article>
+            <h5>{{noticia.fecha}}</h5>
+            <h5>{{noticia.tags}}</h5>
+            <h5>{{noticia.autor}}</h5>
+        </div>
+        {% endif %}
+
+        {% endfor %}
     </div>
-    {% endfor %}
 </div>
 
 {% endblock %}
