@@ -23,7 +23,7 @@
             <input type="checkbox" name = "Mundo" class="form-checkbox" id="mun">
             <label for="mun" class="form-option">Mundo</label><br><br>
             <input type="checkbox" name = "Opinion" class="form-checkbox" id="op">
-            <label for="op" class="form-option">Opinión</label><br><br>
+            <label for="op" class="form-option">Opinión</label><br>
             <input type="submit" class="submit-btn" value="Aplicar">
         </form>
     </div>
@@ -33,9 +33,9 @@
         {% if noticia.tags in applied_tags %}
         <div class="noticia">
             {% if noticia.url == null %}
-            <a class="titulo-noticia" href = '/noticia/{{noticia.id}}'><h3>{{noticia.titulo}}</h3></a>
+            <a class="titulo-noticia" href = '/noticia/{{noticia.id}}'><h2>{{noticia.titulo}}</h2></a>
             {% else %}
-            <a class="titulo-noticia" href = {{noticia.url}}><h3>{{noticia.titulo}}</h3></a>
+            <a class="titulo-noticia" href = {{noticia.url}}><h2>{{noticia.titulo}}</h2></a>
             {% endif %}
             <p>----------------------------</p>
             <article>{{noticia.resumen}}</article>
