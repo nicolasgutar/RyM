@@ -25,7 +25,7 @@ def tendencias(request):
 """
 
 def tendencias(request):
-    tags = ['Nacion','Industria', 'Economia', 'Deportes', 'Farandula','Politica','Mundo','Opinion']
+    tags = ['Nacion','Industria', 'Economia', 'Deportes', 'Farandula','Política','Mundo','Opinion']
     applied_tags = []
     for tag in tags:
         if request.GET.get(tag):
