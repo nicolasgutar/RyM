@@ -20,6 +20,13 @@ body{
 .contenedor-noticias{
   margin-top: 2vw;
 }
+.contenedor-about{
+  background-color: #C5EEFF;
+  border-radius: 10px;
+  margin: 2vw;
+  padding: 20px;
+  padding-top: 10px;
+}
 
 .title{
   font-size: 5vw;
@@ -30,7 +37,6 @@ body{
 }
 
 .titulo-noticia{
-  font-size: 20px;
   text-decoration: none;
   color: black;
 }
