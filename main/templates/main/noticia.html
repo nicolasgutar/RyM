@@ -5,13 +5,17 @@
     <p class="subtitle">En tendencia esta semana</p>
 </div>
 
-<div>
+<div class="contenedor">
     <h2>{{noticia.titulo}}</h2>
     <p>----------------------------</p>
-    <h5>{{noticia.fecha}}</h5>
-    <h5>{{noticia.tags}}</h5>
-    <h5>{{noticia.autor}}</h5>
-    <article>{{noticia.contenido}}</article>
+    <div class="info-noticia">
+        <p class="tag-noticia">{{noticia.tags}}</p>
+        <div>
+            <h5>{{noticia.fecha}}</h5>
+            <h5>{{noticia.autor}}</h5>
+        </div>
+    </div>
+    <article style="padding-left: 2vw">{{noticia.contenido}}</article>
 </div>
 
 {% endblock %}
