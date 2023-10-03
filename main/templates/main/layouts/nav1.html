@@ -14,37 +14,35 @@
 
 <body>
     <nav style="padding: 0px;" class="navbar navbar-expand-lg bg-body-tertiary">
-        <div style="background-color: #77D4FC; flex-grow: 1" class="container-fluid">
-            <img src="{% static 'Logo Noticio.png' %}" class="imagen-logo">
-              <div class="contenedor-titulo">
-                <h1 class="title">NOTICIO</h1>
-                <p class="big-text">Las noticias que necesitas</p>
-              </div>
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-                </button>
-                <ul class="navbar-nav">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/">Tendencias</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Tus noticias</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="/publicar">Publicar</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="/about">Acerca de</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Iniciar sesión</a>
-                  </li>
-                </ul>
-                <form style="margin: 30px;" class="d-flex" role="search">
-                  <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
-                  <input class="btn btn-outline-success" type="submit" value="Buscar"></button>
-                </form>
+        <div class="container-fluid">
+            <a href="/" class="link-logo">
+              <img src="{% static 'Logo Noticio.png' %}" class="imagen-logo">
+            </a>
+            <div class="contenedor-titulo">
+              <h1 class="title">NOTICIO</h1>
+              <p class="big-text">Las noticias que necesitas</p>
+            </div>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="/">Tendencias</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Tus noticias</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/publicar">Publicar</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/about">Acerca de</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Iniciar sesión</a>
+                </li>
+              </ul>
             </div>
         </div>
     </nav>
