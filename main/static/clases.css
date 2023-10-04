@@ -249,7 +249,7 @@ textarea{
   padding-right: 15px;
 }
   
-@media only screen and (max-width: 1315px) {
+@media only screen and (max-width: 1000px) {
   .navbar-toggler {
     display: block;
   }
