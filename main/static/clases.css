@@ -18,8 +18,9 @@ textarea{
 .bloque-texto{
   padding-left: 2vw;
   line-height: 1.5;
-  margin-bottom: 4vw;
+  margin-bottom: 2vw;
   border-radius: 10px;
+  font-size: max(13px, 1.2vw)
 }
 
 .contenedor{
@@ -28,6 +29,7 @@ textarea{
   margin-left: 10vw;
   margin-right: 10vw;
   margin-top: 2vw;
+  margin-bottom: 2vw;
   padding: 20px;
   padding-top: 10px;
 }
@@ -43,7 +45,8 @@ textarea{
   align-items: center;
   background-color: #5BB4DB;
   width: 100%;
-  height: 5vw
+  height: 5vw;
+  min-height: 40px;
 }
 .contenedor-noticias{
   margin-top: 2vw;
@@ -60,13 +63,14 @@ textarea{
 .titulo-noticia{
   text-decoration: none;
   color: black;
+  font-size: max(10px, 1vw);
 }
 .titulo-noticia:hover{
   color: #1B7095;
 }
 
 .subtitle{
-  font-size: 2.5vw;
+  font-size: max(20px, 2.5vw);
   font-weight: 700;
   margin: 0px;
 }
@@ -78,9 +82,7 @@ textarea{
 }
 
 .form-publicar {
-  width: 500px;
-  margin: 0 auto;
-  padding: 20px;
+  width: -webkit-fill-available;
 }
 
 .form-publicar label {
@@ -92,20 +94,32 @@ textarea{
 
 .form-publicar input,
 .form-publicar textarea {
-  width: 100%;
+  width:-webkit-fill-available;;
   padding: 10px;
   margin-bottom: 10px;
   background-color: #E3F7FF;
+  font-size: max(20px, 1vw);
 }
-
+.form-publicar label{
+  display: inline-table;
+  width:-webkit-fill-available;;
+  height: 3vw;
+}
+.form-publicar select{
+  font-size: max(15px, 1.5vw);
+  border-radius: 10px;
+}
 .form-publicar button {
-  width: 100%;
-  padding: 10px;
+  width: 7vw;
+  height: 3vw;
+  min-width: 77px;
+  min-height: 36px;
+  font-size: max(17px, 1.5vw);
   margin-top: 10px;
-  background-color: #000000;
+  background-color: #1B7095;
   color: #ffffff;
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
   cursor: pointer;
 }
 
@@ -145,13 +159,18 @@ textarea{
   height: 100%;
 }
 .fondo-pub {
+  min-height: 600px;
   background-color: #C5EEFF;
   border-radius: 10px;
   margin-left: 20vw;
   margin-right: 20vw;
   margin-top: 2vw;
-  padding: 20px;
-  padding-top: 10px;
+  margin-bottom: 2vw;
+  padding: 3vw;
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+  flex-wrap: wrap;
 }
 .fondo-about{
   background-color: #ABCFE9;
@@ -160,8 +179,7 @@ textarea{
   margin-right: 10vw;
   margin-top: 2vw;
   margin-bottom: 2vw;
-  padding: 20px;
-  padding-top: 10px;
+  padding: max(15px,1.5vw);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -191,11 +209,11 @@ textarea{
   display: flex;
   justify-content: space-between;
   font-weight: 600;
+  font-size: max(13px, 1.2vw);
 }
 .tag-noticia{
   background-color: #5BB4DB;
   border-radius: 10px;
-  font-size: large;
   align-self: baseline;
   padding: 5px;
 }
@@ -215,12 +233,15 @@ textarea{
 }
 
 .link-logo{
-  max-width: 15vw;
-  min-width: 70px;
+  max-width: 500px;
+  width: 30vw;
+  min-width: 200px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   margin-left: 5vw;
+  margin-top: 1vw;
+  margin-bottom: 1vw;
 }
 
 .container-fluid{
