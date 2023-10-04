@@ -98,9 +98,10 @@ textarea{
   padding: 10px;
   margin-bottom: 10px;
   background-color: #E3F7FF;
-  font-size: max(20px, 1vw);
+  font-size: max(10px, 1vw);
 }
 .form-publicar label{
+  font-size: max(20px, 1.7vw);
   display: inline-table;
   width:-webkit-fill-available;;
   height: 3vw;
