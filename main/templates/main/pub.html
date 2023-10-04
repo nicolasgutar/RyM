@@ -5,11 +5,15 @@
     <p class="subtitle">Publica una noticia</p>
 </div>
 
-<form method="POST" class="form-publicar">
-    {% csrf_token %}
-    {{form.as_p}}
-    <button class="submit-btn">
-        Save
-    </button>
-</form>
+
+<div class = "fondo-pub">
+    <form method="POST" class="form-publicar">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button class="submit-btn">
+            Save
+        </button>
+    </form>
+</div>
+
 {% endblock %}

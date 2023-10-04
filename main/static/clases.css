@@ -18,12 +18,25 @@ textarea{
 .bloque-texto{
   padding-left: 2vw;
   line-height: 1.5;
+  margin-bottom: 4vw;
+}
+
+.fondo-pub {
+  background-color: #C5EEFF;
+  border-radius: 10px;
+  margin-left: 20vw;
+  margin-right: 20vw;
+  margin-top: 2vw;
+  padding: 20px;
+  padding-top: 10px;
 }
 
 .contenedor{
   background-color: #C5EEFF;
   border-radius: 10px;
-  margin: 2vw;
+  margin-left: 10vw;
+  margin-right: 10vw;
+  margin-top: 2vw;
   padding: 20px;
   padding-top: 10px;
 }
@@ -73,13 +86,39 @@ textarea{
   margin: 0px;
 }
 
-.form-publicar{
-  background-color: #ABCFE9;
-  margin: 2vw;
-  padding: 2vw;
-  top: 20px;
-  border-radius: 10px;
+.form-publicar {
+  width: 500px;
+  margin: 0 auto;
+  padding: 20px;
 }
+
+.form-publicar label {
+  font-size: 28px;
+  font-weight: bold;
+  font-family: ;
+  color: #002231;
+
+}
+
+.form-publicar input,
+.form-publicar textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #E3F7FF;
+}
+
+.form-publicar button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: #000000;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
 .form-filtros{
   padding-left: 2vw;
   padding-top: 1vw;
