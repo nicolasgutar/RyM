@@ -19,16 +19,7 @@ textarea{
   padding-left: 2vw;
   line-height: 1.5;
   margin-bottom: 4vw;
-}
-
-.fondo-pub {
-  background-color: #C5EEFF;
   border-radius: 10px;
-  margin-left: 20vw;
-  margin-right: 20vw;
-  margin-top: 2vw;
-  padding: 20px;
-  padding-top: 10px;
 }
 
 .contenedor{
@@ -152,6 +143,28 @@ textarea{
   display: flex;
   background-color: #D9F4FF;
   height: 100%;
+}
+.fondo-pub {
+  background-color: #C5EEFF;
+  border-radius: 10px;
+  margin-left: 20vw;
+  margin-right: 20vw;
+  margin-top: 2vw;
+  padding: 20px;
+  padding-top: 10px;
+}
+.fondo-about{
+  background-color: #ABCFE9;
+  border-radius: 10px;
+  margin-left: 10vw;
+  margin-right: 10vw;
+  margin-top: 2vw;
+  margin-bottom: 2vw;
+  padding: 20px;
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .filtros{
