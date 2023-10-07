@@ -42,3 +42,6 @@ def tendencias(request):
 def noticia(request, id):
     noticia = get_object_or_404(Noticia,id=id)
     return render(request, "main/noticia.html", {'noticia':noticia})
+
+def iniciaSesion(request):
+    return render(request, "main/iniciaSesion.html")

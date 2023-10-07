@@ -6,4 +6,5 @@ urlpatterns = [
     path('about/',views.about),
     path("noticia/<int:id>",views.noticia),
     path("publicar",views.publicar),
+    path("iniciaSesion",views.iniciaSesion)
 ]
