@@ -50,6 +50,7 @@ textarea{
 }
 .contenedor-noticias{
   margin-top: 2vw;
+  width: 100%;
 }
 
 .title{
@@ -225,8 +226,8 @@ textarea{
     align-self: center;
 }
 .imagen-menu {
-  height: fit-content;
-  max-width: 5vw;
+  height: 35px;
+  max-width: 45px;
   border-radius: 8px;
 }
 .nav-link{
@@ -234,7 +235,7 @@ textarea{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     text-decoration: none;
     color: black;
-    font-size: 1.2vw;
+    font-size: max(1.2vw, 13px);
 }
 
 .link-logo{
@@ -271,8 +272,10 @@ textarea{
 }
 
 .navbar-toggler {
-  height: fit-content;
+  height: 35px;
+  width: 45px;
   display: none;
+  cursor: pointer;
 }
 
 .submit-btn{
@@ -287,7 +290,7 @@ textarea{
   padding-right: 15px;
 }
   
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 894px) {
   .navbar-toggler {
     display: block;
   }
@@ -295,11 +298,17 @@ textarea{
     display: none;
     flex-direction: column;
     position: absolute;
-    top: 60px;
     left: 0;
+    top: 83px;
     width: 100%;
     text-align: center;
-    background-color: #D9F4FF;
+    background-color: #5bb4db;
+    z-index: 1;
+    padding: 0px;
+    margin-block-start: 0px;
+  }
+  .navbar-nav-active {
+    display: flex;
   }
 
   .navbar-collapse{
