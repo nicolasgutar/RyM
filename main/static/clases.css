@@ -85,11 +85,11 @@ textarea{
   margin: 0px;
 }
 
-.form-publicar {
+.form-publicar, .formIS {
   width: -webkit-fill-available;
 }
 
-.form-publicar label {
+.form-publicar label, .formIS label {
   font-size: 28px;
   font-weight: bold;
   color: #002231;
@@ -97,14 +97,17 @@ textarea{
 }
 
 .form-publicar input,
-.form-publicar textarea {
+.form-publicar textarea,
+.formIS input,
+.formIS textarea {
   width:-webkit-fill-available;;
   padding: 10px;
   margin-bottom: 10px;
   background-color: #E3F7FF;
   font-size: max(10px, 1vw);
 }
-.form-publicar label{
+.form-publicar label,
+.formIS label{
   font-size: max(20px, 1.7vw);
   display: inline-table;
   width:-webkit-fill-available;;
@@ -114,7 +117,7 @@ textarea{
   font-size: max(15px, 1.5vw);
   border-radius: 10px;
 }
-.form-publicar button {
+.form-publicar button, .formIS button {
   width: 7vw;
   height: 3vw;
   min-width: 77px;

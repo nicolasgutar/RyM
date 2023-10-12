@@ -15,4 +15,9 @@ class PublicarNoticia(forms.ModelForm):
     class Meta:
         model = Noticia
         fields = ['tags', 'titulo', 'resumen', 'contenido']
+        widgets = {
+            'titulo': forms.Textarea(attrs={'placeholder':'ingrese el titulo de su noticcia'}),
+            'resumen': forms.Textarea(attrs={'placeholder':'ingrese el resumen de su noticcia'}),
+            'contenido': forms.Textarea(attrs={'placeholder':'ingrese el contenido de su noticcia'})
+        }
 

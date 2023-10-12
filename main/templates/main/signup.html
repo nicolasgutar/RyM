@@ -1,0 +1,16 @@
+{% extends 'main/layouts/nav1.html' %}
+
+{% block content %}
+
+{{error}}
+
+<form method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button>
+        signup
+    </button>
+</form>
+
+
+{% endblock %}

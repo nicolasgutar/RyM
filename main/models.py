@@ -17,7 +17,7 @@ class Noticia(models.Model):
 
     autor = models.CharField(max_length=30)
     tags = models.CharField(max_length=50, choices = TAGS)
-    titulo = models.TextField(max_length=200, default="noticia")
+    titulo = models.TextField(max_length=200)
     resumen = models.TextField(max_length=600)
     fecha = models.DateField(auto_now=True)
     #a implementar cuando se aprenda de usuarios

@@ -5,8 +5,17 @@
     <p class="subtitle">Inicia Sesión</p>
 </div>
 
-<div class = "fondo-pub">
+{{error.as_p}}
 
+<div class = "fondo-pub">
+    <form method = 'post' class="formIS">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button>
+            Iniciar Sesion
+        </button>
+    </form>
+    <p>¿No tienes una cuenta? <a href = /registro>Registrate</a></p>
 </div>
 
 {% endblock %}
