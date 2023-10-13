@@ -1,11 +1,12 @@
 
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Noticia
-from .forms import PublicarNoticia
+from .models import Noticia, CustomUser
+from .forms import PublicarNoticia, RegistrarUsuario
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
 from django.db import IntegrityError
+from django.db.models import Case, When, Value, IntegerField
 
 # Create your views here.
 
@@ -19,22 +20,68 @@ def publicar(request):
         Noticia.objects.create(tags = request.POST['tags'],
                                titulo = request.POST['titulo'],
                                resumen = request.POST['resumen'],
-                               contenido = request.POST['contenido'])
+                               contenido = request.POST['contenido'],
+                               user = request.user,
+                               autor = request.user)
         return redirect('/')
     
 def tendencias(request):
+
     tags = ['Nacion','Industria', 'Economia', 'Deportes', 'Farandula','Política','Mundo','Opinion']
     applied_tags = []
     for tag in tags:
         if request.GET.get(tag):
             applied_tags.append(tag)
     
-    noticias = Noticia.objects.all()
+    noticias = Noticia.objects.all().order_by('fecha').reverse()
 
     if applied_tags == []:
         applied_tags = tags
     
-    return render(request, "main/tendencias.html", {"noticias":noticias, "applied_tags":applied_tags})
+    if request.method == 'GET':
+        return render(request, "main/tendencias.html", {"noticias":noticias, "applied_tags":applied_tags})
+    elif request.method == 'POST':
+        noticia_id = request.POST.get('noticia_id')
+        print(noticia_id)
+        noticia = Noticia.objects.get(id=noticia_id)
+        print(noticia)
+        request.user.saved_news.add(noticia)
+        print(request.user.saved_news)
+        return redirect('/perfil')
+
+def tusnoticias(request):
+    tags = ['Nacion','Industria', 'Economia', 'Deportes', 'Farandula','Política','Mundo','Opinion']
+    applied_tags = []
+    for tag in tags:
+        if request.GET.get(tag):
+            applied_tags.append(tag)
+    
+    noticias = Noticia.objects.all().order_by('fecha').reverse()
+
+    if applied_tags == []:
+        applied_tags = tags
+
+    preferences = set(request.user.preferences)
+
+    noticias = noticias.annotate(
+        custom_order= Case(
+            When(tags__in=preferences, then=Value(1)),
+            default=Value(0),
+            output_field=IntegerField()
+        )
+    ).order_by('custom_order')
+
+    if request.method == 'GET':
+        return render(request, "main/tendencias.html", {"noticias":noticias, "applied_tags":applied_tags})
+    elif request.method == 'POST':
+        noticia_id = request.POST.get('noticia_id')
+        print(noticia_id)
+        noticia = Noticia.objects.get(id=noticia_id)
+        print(noticia)
+        request.user.saved_news.add(noticia)
+        print(request.user.saved_news)
+        return redirect('/perfil')
+
 
 def noticia(request, id):
     noticia = get_object_or_404(Noticia,id=id)
@@ -53,16 +100,19 @@ def iniciaSesion(request):
             return redirect('/perfil')
 
 def perfil(request):
-    return render(request, 'main/perfil.html')
+    user = request.user
+    print(type(user.preferences))
+    return render(request, 'main/perfil.html', {'usuario':user})
 
 def registro(request):
     if request.method == 'GET':
-        return render(request, "main/signup.html", {'form':UserCreationForm})
+        return render(request, "main/signup.html", {'form':RegistrarUsuario})
     else:
-        if request.POST['password1'] == request.POST['password2']:
+        if request.POST['password'] == request.POST['password2']:
             try:
-                user = User.objects.create_user(username = request.POST['username'],
-                                        password = request.POST['password1'])
+                user = CustomUser.objects.create_user(username = request.POST['username'],
+                                        password = request.POST['password'],
+                                        password2 = 'secret')
                 user.save()
                 login(request,user)
                 return redirect('/perfil')

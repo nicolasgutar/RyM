@@ -1,5 +1,6 @@
 from django import forms
 from .models import Noticia
+from .models import CustomUser
 
 """
 class PublicarNoticia(forms.Form ):
@@ -21,3 +22,7 @@ class PublicarNoticia(forms.ModelForm):
             'contenido': forms.Textarea(attrs={'placeholder':'ingrese el contenido de su noticcia'})
         }
 
+class RegistrarUsuario(forms.ModelForm):
+    class Meta:
+        model = CustomUser
+        fields = ['username', 'password','password2','preferences']

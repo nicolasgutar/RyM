@@ -1,3 +1,30 @@
 {% extends 'main/layouts/nav1.html' %}
 
-<h1>perfil </h1>
+
+
+{% block content %}
+<div class="contenedor-subtitulo">
+    <p class="subtitle">Tu Perfil</p>
+</div>
+
+{{user.username}}
+
+<div>
+    {% for tag in user.preferences %}
+    <h3>{{tag}}</h3>
+
+    {% endfor %}
+</div>
+
+
+<div>
+    {% for noticia in user.saved_news.all %}
+        {% if noticia.url == null %}
+                <a class="titulo-noticia" href = '/noticia/{{noticia.id}}' target = "_blank"><h2>{{noticia.titulo}}</h2></a>
+            {% else %}
+                <a class="titulo-noticia" href = {{noticia.url}} target = "_blank"><h2>{{noticia.titulo}}</h2></a>
+            {% endif %}
+    {% endfor %}
+</div>
+
+{% endblock %}

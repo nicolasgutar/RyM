@@ -10,6 +10,7 @@
 <div class = "fondo-pub">
     <form method = 'post' class="formIS">
         {% csrf_token %}
+        {{error}}
         {{form.as_p}}
         <button>
             Iniciar Sesion

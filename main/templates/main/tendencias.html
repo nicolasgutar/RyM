@@ -8,7 +8,7 @@
     <div style="display: flex; flex-direction: column">
         <div id="filtros" class="filtros">
             <p class="subtitle2">Filtrar por temas:</p>
-            <form class="form-filtros" method = "get">
+            <form class="form-filtros" method="get">
                 <input type="checkbox" name = "Economia" class="form-checkbox" id="eco">
                 <label for="eco" class="form-option">Economía</label><br><br>
                 <input type="checkbox" name = "Industria" class="form-checkbox" id="ind">
@@ -48,6 +48,18 @@
                 <div>
                     <p>{{noticia.autor}}</p>
                     <p>{{noticia.fecha}}</p>
+                    {% if user.is_authenticated %}
+                        <!-- hay que validar tambien que no tenga ya guardada la noticia-->
+                        {%if not noticia in user.saved_news.all %}
+                        <form class="guardar" method="post">
+                            {% csrf_token %}
+                            <input type="hidden" name="noticia_id" value="{{ noticia.id }}">
+                            <input type="submit" value="+" style="font-size: 20px; border: none;">
+                        </form>
+                        {% else %}
+                        <p>saved</p>
+                        {% endif %}
+                    {% endif %}
                 </div>
             </div>
         </div>
