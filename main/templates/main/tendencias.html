@@ -54,7 +54,7 @@
                         <form class="guardar" method="post">
                             {% csrf_token %}
                             <input type="hidden" name="noticia_id" value="{{ noticia.id }}">
-                            <input type="submit" value="+" style="font-size: 20px; border: none;">
+                            <input type="submit" value="+" class="save-btn">
                         </form>
                         {% else %}
                         <p>saved</p>
