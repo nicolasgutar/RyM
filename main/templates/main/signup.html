@@ -3,14 +3,14 @@
 {% block content %}
 
 {{error}}
-
-<form method="post">
-    {% csrf_token %}
-    {{form.as_p}}
-    <button>
-        signup
-    </button>
-</form>
-
+<div class = "fondo-pub">
+    <form method="post" class="formIS">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button>
+            Signup
+        </button>
+    </form>
+</div>
 
 {% endblock %}

@@ -1,30 +1,38 @@
 {% extends 'main/layouts/nav1.html' %}
 
 
-
+{% load static %}
 {% block content %}
 <div class="contenedor-subtitulo">
     <p class="subtitle">Tu Perfil</p>
 </div>
 
-{{user.username}}
-
-<div>
-    {% for tag in user.preferences %}
-    <h3>{{tag}}</h3>
-
-    {% endfor %}
-</div>
-
-
-<div>
-    {% for noticia in user.saved_news.all %}
-        {% if noticia.url == null %}
+<div class="fondo-perfil">
+    <div class="contenedor-perfil">
+        <div class="bloque-perfil">
+            <img src="{% static 'imagen perfil.png' %}" class="imagen-logo">
+            {{user.username}}
+        </div>
+        <div style="width: -webkit-fill-available;">
+            <h2 class="subtitle">Noticias Guardadas</h2>
+            <div class="bloque-noticias-guardadas">
+                {% for noticia in user.saved_news.all %}
+                {% if noticia.url == null %}
                 <a class="titulo-noticia" href = '/noticia/{{noticia.id}}' target = "_blank"><h2>{{noticia.titulo}}</h2></a>
-            {% else %}
+                {% else %}
                 <a class="titulo-noticia" href = {{noticia.url}} target = "_blank"><h2>{{noticia.titulo}}</h2></a>
-            {% endif %}
-    {% endfor %}
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div style="width: -webkit-fill-available">
+        <h2 class="subtitle" style="margin: 2vw; margin-left:0px">Tus gustos</h2>
+        <div class="contenedor-gustos">
+            {% for tag in user.preferences %}
+            <h2 class="tag-noticia">{{tag}}</h2>
+            {% endfor %}
+        </div>
+    </div>
 </div>
-
 {% endblock %}
