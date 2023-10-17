@@ -27,5 +27,13 @@ class RegistrarUsuario(forms.ModelForm):
         model = CustomUser
         fields = ['username', 'password','password2','preferences']
         widgets = {
-            #'preferences': forms.CheckboxInput(attrs={'class': 'form-checkbox'})
+            #'preferences': forms.CheckboxInput(attrs={'class': 'custon-box'})
+            'username': forms.TextInput(attrs={'placeholder':'Ingrese su usuario'}),
+            'password': forms.TextInput(attrs={'placeholder':'Ingrese su contraseña'}),
+            'password2': forms.TextInput(attrs={'placeholder':'Ingrese nuevamente su contraseña para validar'}),
+        }
+        labels = {
+            'username': 'Usuario',
+            'password': 'Contraseña',
+            'password2': 'Confirmar Contraseña',
         }

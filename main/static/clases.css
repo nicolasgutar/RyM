@@ -429,3 +429,20 @@ a {
     border-radius: 6px;
     height: 18%;
 }
+
+input[name="preferences"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 20px;
+  height: 20px;
+  background-color: #ABCFE9; 
+  border-radius: 50%; 
+  outline: none; 
+  margin: 0px;
+  font-size: auto;
+}
+
+input[name="preferences"]:checked {
+  background-color: #1B7095;
+}

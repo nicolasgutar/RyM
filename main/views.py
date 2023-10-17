@@ -7,12 +7,15 @@ from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
 from django.db import IntegrityError
 from django.db.models import Case, When, Value, IntegerField
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
 def about(request):
     return render(request, 'main/about.html')
 
+
+@login_required
 def publicar(request):
     if request.method == 'GET':
         return render(request, 'main/pub.html', {'form':PublicarNoticia})
@@ -42,13 +45,14 @@ def tendencias(request):
         return render(request, "main/tendencias.html", {"noticias":noticias, "applied_tags":applied_tags})
     elif request.method == 'POST':
         noticia_id = request.POST.get('noticia_id')
-        print(noticia_id)
+        #print(noticia_id)
         noticia = Noticia.objects.get(id=noticia_id)
-        print(noticia)
+        #print(noticia)
         request.user.saved_news.add(noticia)
-        print(request.user.saved_news)
+        #print(request.user.saved_news)
         return redirect('/perfil')
 
+@login_required
 def tusnoticias(request):
     tags = ['Nacion','Industria', 'Economia', 'Deportes', 'Farandula','Política','Mundo','Opinion']
     applied_tags = []
@@ -119,8 +123,8 @@ def registro(request):
             except IntegrityError:
                 return render(request, "main/signup.html", {'form':UserCreationForm,
                                                             'error':'el nombre de usuario ya existe'})
-
-        return render(request, "main/signup.html", {'form':UserCreationForm,
+        else:
+            return render(request, "main/signup.html", {'form':UserCreationForm,
                                                     'error': 'las contraseñas no coinciden'})
         print(request.POST)
         print('obt')
