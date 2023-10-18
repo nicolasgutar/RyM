@@ -17,9 +17,12 @@ class PublicarNoticia(forms.ModelForm):
         model = Noticia
         fields = ['tags', 'titulo', 'resumen', 'contenido']
         widgets = {
-            'titulo': forms.Textarea(attrs={'placeholder':'Ingrese el título de su noticia'}),
+            'titulo': forms.TextInput(attrs={'placeholder':'Ingrese el título de su noticia'}),
             'resumen': forms.Textarea(attrs={'placeholder':'Ingrese el resumen de su noticia'}),
             'contenido': forms.Textarea(attrs={'placeholder':'Ingrese el contenido de su noticia'})
+        }
+        labels = {
+            'tags':'Tag'
         }
 
 class RegistrarUsuario(forms.ModelForm):
@@ -36,4 +39,5 @@ class RegistrarUsuario(forms.ModelForm):
             'username': 'Usuario',
             'password': 'Contraseña',
             'password2': 'Confirmar Contraseña',
+            'preferences': 'preferenccias',
         }

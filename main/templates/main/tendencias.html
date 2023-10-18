@@ -54,10 +54,16 @@
                         <form class="guardar" method="post">
                             {% csrf_token %}
                             <input type="hidden" name="noticia_id" value="{{ noticia.id }}">
+                            <input type="hidden" name="operacion" value="save">
                             <input type="submit" value="+" class="save-btn">
                         </form>
                         {% else %}
-                        <p>saved</p>
+                        <form class="'guardar" method="post">
+                            {% csrf_token %}
+                            <input type="hidden" name="noticia_id" value="{{ noticia.id }}">
+                            <input type="hidden" name="operacion" value="unsave">
+                            <input type="submit" value="-" class="save-btn">
+                        </form>
                         {% endif %}
                     {% endif %}
                 </div>

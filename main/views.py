@@ -44,13 +44,22 @@ def tendencias(request):
     if request.method == 'GET':
         return render(request, "main/tendencias.html", {"noticias":noticias, "applied_tags":applied_tags})
     elif request.method == 'POST':
+        operacion = request.POST.get('operacion')
+        print('aaaaaa',operacion)
         noticia_id = request.POST.get('noticia_id')
-        #print(noticia_id)
-        noticia = Noticia.objects.get(id=noticia_id)
-        #print(noticia)
-        request.user.saved_news.add(noticia)
-        #print(request.user.saved_news)
-        return redirect('/perfil')
+        if operacion == 'save':
+            #print(noticia_id)
+            noticia = Noticia.objects.get(id=noticia_id)
+            #print(noticia)
+            print('esta entrando por save')
+            request.user.saved_news.add(noticia)
+            #print(request.user.saved_news)
+            return redirect('/')
+        elif operacion == 'unsave':
+            noticia = Noticia.objects.get(id=noticia_id)
+            print('esta entrando por unsave')
+            request.user.saved_news.remove(noticia)
+            return redirect('/')
 
 @login_required
 def tusnoticias(request):
@@ -78,13 +87,23 @@ def tusnoticias(request):
     if request.method == 'GET':
         return render(request, "main/tendencias.html", {"noticias":noticias, "applied_tags":applied_tags})
     elif request.method == 'POST':
+        operacion = request.POST.get('operacion')
+        print('aaaaaa',operacion)
         noticia_id = request.POST.get('noticia_id')
-        print(noticia_id)
-        noticia = Noticia.objects.get(id=noticia_id)
-        print(noticia)
-        request.user.saved_news.add(noticia)
-        print(request.user.saved_news)
-        return redirect('/perfil')
+        if operacion == 'save':
+            #print(noticia_id)
+            noticia = Noticia.objects.get(id=noticia_id)
+            #print(noticia)
+            print('esta entrando por save')
+            request.user.saved_news.add(noticia)
+            #print(request.user.saved_news)
+            return redirect('/perfil')
+        elif operacion == 'unsave':
+            noticia = Noticia.objects.get(id=noticia_id)
+            print('esta entrando por unsave')
+            request.user.saved_news.remove(noticia)
+            return redirect('/perfil')
+
 
 
 def noticia(request, id):
