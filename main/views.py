@@ -133,9 +133,11 @@ def registro(request):
     else:
         if request.POST['password'] == request.POST['password2']:
             try:
+                print(request.POST['preferences'])
                 user = CustomUser.objects.create_user(username = request.POST['username'],
                                         password = request.POST['password'],
-                                        password2 = 'secret')
+                                        password2 = 'secret',
+                                        preferences = request.POST['preferences'])
                 user.save()
                 login(request,user)
                 return redirect('/perfil')
