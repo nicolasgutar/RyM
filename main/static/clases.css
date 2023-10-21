@@ -355,9 +355,10 @@ a {
   background-color: #5BB4DB;
   width: 50px;
   height: 50px;
-  position: sticky;
+  position: fixed;
   display: none;
   margin: 2vw;
+  margin-left: 94vw;
   border-radius: 10px;
   flex-wrap: wrap;
   align-content: center;
@@ -378,6 +379,14 @@ a {
   padding-right: 15px;
 }
 .save-btn{
+  width: 30px;
+  height: 30px;
+  font-size: 20px;
+  border: none;
+  border-radius: 50%
+}
+.unsave-btn{
+  background-color: #5BB4DB;
   width: 30px;
   height: 30px;
   font-size: 20px;
