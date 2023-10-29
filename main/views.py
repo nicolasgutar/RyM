@@ -1,7 +1,7 @@
 
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Noticia, CustomUser
-from .forms import PublicarNoticia, RegistrarUsuario
+from .forms import PublicarNoticia, RegistrarUsuario, EditarPreferencias
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
@@ -131,24 +131,34 @@ def registro(request):
     if request.method == 'GET':
         return render(request, "main/signup.html", {'form':RegistrarUsuario})
     else:
-        if request.POST['password'] == request.POST['password2']:
-            try:
-                print(request.POST['preferences'])
-                user = CustomUser.objects.create_user(username = request.POST['username'],
-                                        password = request.POST['password'],
-                                        password2 = 'secret',
-                                        preferences = request.POST['preferences'])
-                user.save()
-                login(request,user)
-                return redirect('/perfil')
-            except IntegrityError:
-                return render(request, "main/signup.html", {'form':UserCreationForm,
-                                                            'error':'el nombre de usuario ya existe'})
-        else:
-            return render(request, "main/signup.html", {'form':UserCreationForm,
-                                                    'error': 'las contraseñas no coinciden'})
-        print(request.POST)
-        print('obt')
+        form = RegistrarUsuario(request.POST)
+        if form.is_valid():
+            if form.cleaned_data['password'] == form.cleaned_data['password2']:
+                try:
+                    user = CustomUser(username = form.cleaned_data['username'],
+                                    preferences = form.cleaned_data['preferences'],
+                                    profile_pic = form.cleaned_data['profile_pic'])
+                    user.set_password(form.cleaned_data['password'])
+                    user.save()
+                    login(request,user)
+                    return redirect('/perfil')
+                except IntegrityError:
+                    return render(request, "main/signup.html",{'form':RegistrarUsuario,'error':'el nombre de usuario ya existe'})
+            else:
+                return render(request, "main/signup.html", {'form':RegistrarUsuario,
+                                                        'error': 'las contraseñas no coinciden'})
+
+def editar(request):
+    user = request.user
+    if request.method == 'GET':
+        return render(request, 'main/editar.html', {'form':EditarPreferencias})
+    else:
+        form = EditarPreferencias(request.POST)
+        if form.is_valid():
+            user.preferences = form.cleaned_data['preferences']
+            user.save()
+            return redirect('/perfil')
+        
 
 def signout(request):
     logout(request)

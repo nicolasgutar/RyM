@@ -63,11 +63,12 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
         ("Opinion","Opinion"),
     )
     preferences = MultiSelectField(max_length= 50, choices = TAGS)
+    profile_pic = models.ImageField(null=True, blank=True, upload_to="static/pfp")
     saved_news = models.ManyToManyField(Noticia, blank=True)
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
-    password2 = models.CharField(max_length=20)
+    password2 = models.CharField(max_length=20, null=True)
 
     objects = CustomUserManager()
 

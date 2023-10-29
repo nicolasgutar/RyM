@@ -10,7 +10,11 @@
 <div class="fondo-perfil">
     <div class="contenedor-perfil">
         <div class="bloque-perfil">
+            {% if user.profile_pic == null %}
             <img src="{% static 'imagen perfil.png' %}" class="imagen-logo">
+            {% else %}
+            <img src = "{{'user.profile_pic'}}" class = "imagen-logo" alt="error cargando foto de perfil">
+            {% endif %}
             {{user.username}}
         </div>
         <div style="width: -webkit-fill-available;">
@@ -27,7 +31,7 @@
         </div>
     </div>
     <div style="width: -webkit-fill-available">
-        <h2 class="subtitle" style="margin: 2vw; margin-left:0px">Tus gustos</h2>
+        <h2 class="subtitle" style="margin: 2vw; margin-left:0px">Tus gustos</h2><a href = '/editar'><h5>editar</h5></a>
         <div class="contenedor-gustos">
             {% for tag in user.preferences %}
             <h2 class="tag-noticia">{{tag}}</h2>

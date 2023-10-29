@@ -1,0 +1,19 @@
+{% extends 'main/layouts/nav1.html' %}
+
+{% block content %}
+<div class="contenedor-subtitulo">
+    <p class="subtitle">Edita tus preferencias</p>
+</div>
+
+<div class = "fondo-pub">
+    <form method = 'post' class="formIS">
+        {% csrf_token %}
+        {{error}}
+        {{form.as_p}}
+        <button>
+            Guardar
+        </button>
+    </form>
+</div>
+
+{% endblock %}
