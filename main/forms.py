@@ -44,6 +44,13 @@ class RegistrarUsuario(forms.ModelForm):
             'preferences': 'preferencias',
             'profile_pic': 'foto de perfil'
         }
+
+        
+    preferences = forms.MultipleChoiceField(
+        required=False,
+        widget=forms.CheckboxSelectMultiple,
+        choices=CustomUser.TAGS
+    )
         
     def clean_username(self):
         username = self.cleaned_data.get('username')
