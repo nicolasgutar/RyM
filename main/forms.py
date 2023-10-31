@@ -1,6 +1,7 @@
 from django import forms
 from .models import Noticia
 from .models import CustomUser
+from django.core.exceptions import ValidationError
 
 """
 class PublicarNoticia(forms.Form ):
@@ -32,15 +33,32 @@ class RegistrarUsuario(forms.ModelForm):
         widgets = {
             #'preferences': forms.CheckboxInput(attrs={'class': 'custon-box'})
             'username': forms.TextInput(attrs={'placeholder':'Ingrese su usuario'}),
-            'password': forms.TextInput(attrs={'placeholder':'Ingrese su contraseña'}),
-            'password2': forms.TextInput(attrs={'placeholder':'Ingrese nuevamente su contraseña para validar'}),
+            'password': forms.PasswordInput(attrs={'placeholder':'Ingrese su contraseña. Almenos 6 caracteres, 1 de ellos no numerico'}),
+            'password2': forms.PasswordInput(attrs={'placeholder':'Ingrese nuevamente su contraseña para validar'}),
         }
+
         labels = {
             'username': 'Usuario',
             'password': 'Contraseña',
             'password2': 'Confirmar Contraseña',
             'preferences': 'preferencias',
+            'profile_pic': 'foto de perfil'
         }
+        
+    def clean_username(self):
+        username = self.cleaned_data.get('username')
+        if not username.isalnum():
+            raise ValidationError("Username should be alphanumeric.")
+        return username
+        
+    def clean_password(self):
+        password = self.cleaned_data.get('password')
+        if len(password) < 6:
+            raise ValidationError("La contraseña debe tener almenos 6 caracteres.")
+        if password.isdigit():
+            raise ValidationError("Password should not be entirely numeric.")
+        return password
+        
 
 
 class EditarPreferencias(forms.ModelForm):

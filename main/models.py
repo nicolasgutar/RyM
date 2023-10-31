@@ -50,7 +50,6 @@ class CustomUserManager(BaseUserManager):
         return self.create_user(username, password, **extra_fields)
 
 class CustomUser(AbstractBaseUser, PermissionsMixin):
-    #profile_picture = models.ImageField(upload_to="profile_pictures", blank = True, null = True)
     username = models.CharField(max_length=12, unique=True)
     TAGS = (
         ('Nacion','Nacion'),

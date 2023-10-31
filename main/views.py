@@ -8,6 +8,7 @@ from django.contrib.auth import login, logout, authenticate
 from django.db import IntegrityError
 from django.db.models import Case, When, Value, IntegerField
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 # Create your views here.
 
@@ -128,25 +129,35 @@ def perfil(request):
     return render(request, 'main/perfil.html', {'usuario':user})
 
 def registro(request):
-    if request.method == 'GET':
-        return render(request, "main/signup.html", {'form':RegistrarUsuario})
-    else:
+    if request.method == 'POST':
         form = RegistrarUsuario(request.POST)
         if form.is_valid():
-            if form.cleaned_data['password'] == form.cleaned_data['password2']:
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
+            password2 = form.cleaned_data['password2']
+
+            if password == password2:
                 try:
-                    user = CustomUser(username = form.cleaned_data['username'],
-                                    preferences = form.cleaned_data['preferences'],
-                                    profile_pic = form.cleaned_data['profile_pic'])
-                    user.set_password(form.cleaned_data['password'])
+                    user = CustomUser(username=username, preferences=form.cleaned_data['preferences'])
+                    user.set_password(password)
                     user.save()
-                    login(request,user)
+                    login(request, user)
+                    messages.success(request, 'Usuario creado exitosamente.')
                     return redirect('/perfil')
                 except IntegrityError:
-                    return render(request, "main/signup.html",{'form':RegistrarUsuario,'error':'el nombre de usuario ya existe'})
+                    messages.error(request, 'El nombre de usuario ya existe.')
             else:
-                return render(request, "main/signup.html", {'form':RegistrarUsuario,
-                                                        'error': 'las contraseñas no coinciden'})
+                messages.error(request, 'Las contraseñas no coinciden.')
+        else:
+            # Form is not valid; messages should be displayed on the form
+            for field, errors in form.errors.items():
+                for error in errors:
+                    messages.error(request, f'Error in field "{field}": {error}')
+
+    else:
+        form = RegistrarUsuario()
+
+    return render(request, "main/signup.html", {'form': form})
 
 def editar(request):
     user = request.user
@@ -158,6 +169,9 @@ def editar(request):
             user.preferences = form.cleaned_data['preferences']
             user.save()
             return redirect('/perfil')
+        user.preferences = []
+        user.save()
+        return redirect('/perfil')
         
 
 def signout(request):
