@@ -16,6 +16,21 @@ a {
   color: #1B7095;
 }
 
+#navbar {
+  padding: 0px;
+  position: relative;
+  z-index: 1
+}
+
+#separador {
+  background-color: #014664;
+  width: 100%;
+  height: 2.0vw;
+  min-height: 23px;
+  position: relative;
+  z-index: 1;
+}
+
 .big-text{
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: 1.5vw;
@@ -77,9 +92,10 @@ a {
   width: 100%;
   height: 5vw;
   min-height: 40px;
+  position: relative;
+  z-index: 1
 }
 .contenedor-noticias{
-  margin-top: 2vw;
   width: 100%;
 }
 .contenedor-perfil {
@@ -119,12 +135,17 @@ a {
   margin: 0px;
 }
 .subtitle2{
-  padding: 0.8vw;
-  font-size: 1.5vw;
+  padding: 10px;
+  font-size: max(1.5vw, 16px);
   font-weight: 700;
   margin: 0px;
 }
 
+.error {
+  color: #dd0000;
+  height: 30px;
+  font-size: max(13px, 1.2vw);
+}
 .form-publicar, .formIS {
   width: -webkit-fill-available;
 }
@@ -186,12 +207,13 @@ a {
 }
 
 .form-filtros{
-  padding-left: 2vw;
-  padding-top: 1vw;
-  font-size: 1vw;
+  padding-left: max(2vw, 15px);
+  padding-top: 10px;
   font-weight: 600;
   width: inherit;
-  height: 25vw;
+  height: 35vw;
+  min-height: 400px;
+  max-height: 450px;
 }
 
 .form-checkbox{
@@ -261,19 +283,17 @@ a {
 .filtros{
   position: sticky;
   background-color: #ABCFE9;
-  margin: 2vw;
+  margin: 20px;
   top: 20px;
   width: 15vw;
-  height: 30vw;
-  min-height: 450px;
+  min-width: 130px;
   border-radius: 10px;
 }
 
 .noticia{
   background-color: #C5EEFF;
   border-radius: 10px;
-  margin-bottom: 2vw;
-  margin-right: 2vw;
+  margin: 20px;
   padding: 20px;
   padding-top: 10px;
 }
@@ -323,7 +343,8 @@ a {
 
 .container-fluid{
     display: flex;
-    max-height: 140px;
+    max-height: 180px;
+    height: 10vw;
     min-height: 60px;
     background-color: #77D4FC;
     flex-grow: 1;
@@ -355,9 +376,11 @@ a {
   background-color: #5BB4DB;
   width: 50px;
   height: 50px;
-  position: sticky;
+  position: fixed;
+  bottom: 0;
+  right: 0;
   display: none;
-  margin: 2vw;
+  margin: 20px;
   border-radius: 10px;
   flex-wrap: wrap;
   align-content: center;
@@ -384,8 +407,30 @@ a {
   border: none;
   border-radius: 50%
 }
+.unsave-btn{
+  background-color: #5BB4DB;
+  width: 30px;
+  height: 30px;
+  font-size: 20px;
+  border: none;
+  border-radius: 50%
+}
   
 @media only screen and (max-width: 894px) {
+  .fondo {
+    display: block;
+  }
+  .filtros {
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+  .filtros:hover .form-filtros{
+    display: block;
+  }
+  .form-filtros {
+    display: none;
+  }
   .navbar-toggler {
     display: block;
   }
@@ -394,7 +439,7 @@ a {
     flex-direction: column;
     position: absolute;
     left: 0;
-    top: 83px;
+    top: max(17.6vw, 123px);
     width: 100%;
     text-align: center;
     background-color: #5bb4db;

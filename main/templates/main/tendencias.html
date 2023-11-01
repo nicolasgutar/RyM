@@ -28,9 +28,6 @@
                 <input type="submit" class="submit-btn" value="Aplicar">
             </form>
         </div>
-        <div id="scroll" class="scroll" onclick="scrollToTop()">
-            &#9650;
-        </div>
     </div>
     <div class="contenedor-noticias">
         {% for noticia in noticias %}
@@ -62,7 +59,7 @@
                             {% csrf_token %}
                             <input type="hidden" name="noticia_id" value="{{ noticia.id }}">
                             <input type="hidden" name="operacion" value="unsave">
-                            <input type="submit" value="-" class="save-btn">
+                            <input type="submit" value="-" class="unsave-btn">
                         </form>
                         {% endif %}
                     {% endif %}
@@ -72,6 +69,9 @@
         {% endif %}
 
         {% endfor %}
+    </div>
+    <div id="scroll" class="scroll" onclick="scrollToTop()">
+        &#9650;
     </div>
 </div>
 

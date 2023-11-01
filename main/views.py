@@ -118,7 +118,7 @@ def iniciaSesion(request):
         user = authenticate(request, username = request.POST['username'], password = request.POST['password'])
         if user is None:
             return render(request, "main/iniciaSesion.html", {'form': AuthenticationForm,
-                                                              'error': 'el usuario o la contraseña es incorrecto'})
+                                                              'error': 'El usuario o la contraseña es incorrecto.'})
         else:
             login(request, user)
             return redirect('/perfil')

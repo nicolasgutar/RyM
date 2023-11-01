@@ -13,7 +13,7 @@
             {% if user.profile_pic == null %}
             <img src="{% static 'imagen perfil.png' %}" class="imagen-logo">
             {% else %}
-            <img src = "{{'user.profile_pic'}}" class = "imagen-logo" alt="error cargando foto de perfil">
+            <img src = "{{ user.profile_pic }}" class = "imagen-logo" alt="error cargando foto de perfil">
             {% endif %}
             {{user.username}}
         </div>

@@ -6,7 +6,6 @@ function toggleMenu(){
 window.onscroll = function() {
     var navHeight = document.getElementById('navbar').clientHeight + document.getElementById('separador').clientHeight + document.getElementById('subtitulo').clientHeight;
     var scrollButton = document.getElementById('scroll');
-    scrollButton.style.top = document.getElementById('filtros').clientHeight + 70 + "px";
     if (document.body.scrollTop >= navHeight || document.documentElement.scrollTop >= navHeight){
         scrollButton.style.display = "flex";
     } else {
@@ -18,3 +17,17 @@ function scrollToTop() {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
 }
+function setScrollPosition() {
+    var scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+    sessionStorage.setItem('scrollPosition', scrollPosition);
+}
+
+function getScrollPosition() {
+    var scrollPosition = sessionStorage.getItem('scrollPosition');
+    if (scrollPosition !== null) {
+        window.scrollTo(0, scrollPosition);
+    }
+}
+
+window.addEventListener('beforeunload', setScrollPosition);
+window.addEventListener('load', getScrollPosition);

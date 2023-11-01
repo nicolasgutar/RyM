@@ -63,7 +63,7 @@ class RegistrarUsuario(forms.ModelForm):
         if len(password) < 6:
             raise ValidationError("La contraseña debe tener almenos 6 caracteres.")
         if password.isdigit():
-            raise ValidationError("Password should not be entirely numeric.")
+            raise ValidationError("La contraseña no debe ser completamente numérica.")
         return password
         
 
