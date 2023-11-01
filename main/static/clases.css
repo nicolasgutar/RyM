@@ -321,6 +321,13 @@ a {
   max-width: 45px;
   border-radius: 8px;
 }
+.imagen-perfil {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  padding: 30px;
+  align-self: center;
+}
 .nav-link{
     padding: 1vw !important;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;

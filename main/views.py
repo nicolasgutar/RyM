@@ -138,7 +138,7 @@ def registro(request):
 
             if password == password2:
                 try:
-                    user = CustomUser(username=username, preferences=form.cleaned_data['preferences'])
+                    user = CustomUser(username=username, profile_pic = form.cleaned_data['profile_pic'], preferences=form.cleaned_data['preferences'])
                     user.set_password(password)
                     user.save()
                     login(request, user)

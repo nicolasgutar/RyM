@@ -10,10 +10,10 @@
 <div class="fondo-perfil">
     <div class="contenedor-perfil">
         <div class="bloque-perfil">
-            {% if user.profile_pic == null %}
-            <img src="{% static 'imagen perfil.png' %}" class="imagen-logo">
+            {% if user.profile_pic %}
+                <img src = "{{ user.profile_pic.url }}" class = "imagen-perfil" alt="error cargando foto de perfil">
             {% else %}
-            <img src = "{{ user.profile_pic }}" class = "imagen-logo" alt="error cargando foto de perfil">
+                <img src="{% static 'pfp/imagen perfil.png' %}" class="imagen-logo">
             {% endif %}
             {{user.username}}
         </div>
