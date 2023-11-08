@@ -142,6 +142,7 @@ a {
 }
 
 .error {
+  margin: 10px 0px;
   color: #dd0000;
   height: 30px;
   font-size: max(13px, 1.2vw);
@@ -164,9 +165,10 @@ a {
   width:-webkit-fill-available;;
   padding: 10px;
   margin-bottom: 10px;
-  background-color: #E3F7FF;
+  background-color: #ffffff99;
   font-size: max(10px, 1vw);
-  border-radius: 10px;
+  border-radius: 5px;
+  border: unset;
 }
 .form-publicar label,
 .formIS label{
@@ -179,26 +181,13 @@ a {
   font-size: max(15px, 1.5vw);
   border-radius: 10px;
 }
-.form-publicar button{
-  width: 7vw;
+.form-publicar button, .formIS button{
+  width: 100%;
   height: 3vw;
   min-width: 77px;
-  min-height: 36px;
-  font-size: max(17px, 1.5vw);
-  margin-top: 10px;
-  background-color: #1B7095;
-  color: #ffffff;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-}
-.formIS button {
-  width: 7vw;
-  height: 3.5vw;
-  min-width: 77px;
-  min-height: 50px;
+  min-height: 35px;
+  margin-top: 20px;
   font-size: max(14px, 1.2vw);
-  margin-top: 10px;
   background-color: #1B7095;
   color: #ffffff;
   border: none;
@@ -245,10 +234,7 @@ a {
 .fondo-pub {
   background-color: #C5EEFF;
   border-radius: 10px;
-  margin-left: 20vw;
-  margin-right: 20vw;
-  margin-top: 2vw;
-  margin-bottom: 2vw;
+  margin: 2vw 30vw;
   padding: 3vw;
   display: flex;
   flex-direction: column;
@@ -312,8 +298,7 @@ a {
 }
 
 .imagen-logo{
-  height: fit-content;
-  max-width: 70%;
+  height: 70%;
   align-self: center;
 }
 .imagen-menu {
@@ -469,6 +454,9 @@ a {
 @media only screen and (max-width: 600px) {
   .contenedor-perfil{
     flex-direction: column;
+  }
+  .fondo-pub {
+    margin: 2vw 20vw;
   }
 }
 .form-control{

@@ -29,7 +29,7 @@ class PublicarNoticia(forms.ModelForm):
 class RegistrarUsuario(forms.ModelForm):
     class Meta:
         model = CustomUser
-        fields = ['username','profile_pic', 'password','password2','preferences']
+        fields = ['username','password','password2','profile_pic','preferences']
         widgets = {
             #'preferences': forms.CheckboxInput(attrs={'class': 'custon-box'})
             'username': forms.TextInput(attrs={'placeholder':'Ingrese su usuario'}),
@@ -38,15 +38,16 @@ class RegistrarUsuario(forms.ModelForm):
         }
 
         labels = {
-            'username': 'Usuario',
-            'password': 'Contraseña',
-            'password2': 'Confirmar Contraseña',
+            'username': 'Usuario*',
+            'password': 'Contraseña*',
+            'password2': 'Confirmar contraseña*',
             'preferences': 'preferencias',
-            'profile_pic': 'foto de perfil'
+            'profile_pic': 'Foto de perfil'
         }
 
         
     preferences = forms.MultipleChoiceField(
+        label='Preferencias',
         required=False,
         widget=forms.CheckboxSelectMultiple,
         choices=CustomUser.TAGS

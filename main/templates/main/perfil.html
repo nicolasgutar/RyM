@@ -13,7 +13,7 @@
             {% if user.profile_pic %}
                 <img src = "{{ user.profile_pic.url }}" class = "imagen-perfil" alt="error cargando foto de perfil">
             {% else %}
-                <img src="{% static 'pfp/imagen perfil.png' %}" class="imagen-logo">
+                <img src="{% static 'imagen perfil.png' %}" class="imagen-logo">
             {% endif %}
             {{user.username}}
         </div>
