@@ -1,13 +1,15 @@
 {% extends 'main/layouts/nav1.html' %}
 
 {% block content %}
-
+<div class="contenedor-subtitulo">
+    <p class="subtitle">Registro</p>
+</div>
 <div class = "fondo-pub">
     <form method="post" class="formIS">
         {% csrf_token %}
         {{form.as_p}}
         <button>
-            Signup
+            Sign Up
         </button>
     </form>
 </div>

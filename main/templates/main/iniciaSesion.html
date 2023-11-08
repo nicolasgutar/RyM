@@ -2,7 +2,7 @@
 
 {% block content %}
 <div class="contenedor-subtitulo">
-    <p class="subtitle">Inicia Sesión</p>
+    <p class="subtitle">Iniciar Sesión</p>
 </div>
 
 {{error.as_p}}
@@ -11,11 +11,11 @@
     <form method = 'post' class="formIS">
         {% csrf_token %}
         {{form.as_p}}
-        <div class="error">{{error}}</div>
         <button>
-            Iniciar Sesion
+            Iniciar Sesión
         </button>
     </form>
+    <div class="error">{{error}}</div>
     <p class="bloque-texto">¿No tienes una cuenta? <a href = /registro>Regístrate</a></p>
 </div>
 
