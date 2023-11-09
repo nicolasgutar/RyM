@@ -43,6 +43,7 @@ def tendencias(request):
         applied_tags = tags
     
     if request.method == 'GET':
+        print(len(applied_tags))
         return render(request, "main/tendencias.html", {"noticias":noticias, "applied_tags":applied_tags})
     elif request.method == 'POST':
         operacion = request.POST.get('operacion')

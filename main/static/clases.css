@@ -340,6 +340,34 @@ label[for="id_password2"]:after {
   margin-left: 5px;
 }
 
+label[for="id_tags"]:after {
+  content: '*';
+  color: red;
+  font-size: 20px;
+  margin-left: 5px;
+}
+
+label[for="id_titulo"]:after {
+  content: '*';
+  color: red;
+  font-size: 20px;
+  margin-left: 5px;
+}
+
+label[for="id_resumen"]:after {
+  content: '*';
+  color: red;
+  font-size: 20px;
+  margin-left: 5px;
+}
+
+label[for="id_contenido"]:after {
+  content: '*';
+  color: red;
+  font-size: 20px;
+  margin-left: 5px;
+}
+
 .link-logo{
   max-width: 500px;
   width: 30vw;
