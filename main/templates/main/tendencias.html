@@ -9,21 +9,53 @@
         <div id="filtros" class="filtros">
             <p class="subtitle2">Filtrar por temas:</p>
             <form class="form-filtros" method="get">
-                <input type="checkbox" name = "Economia" class="form-checkbox" id="eco">
+                {% if "Economía" in applied_tags %}
+                <input type="checkbox" name = "Economía" class="form-checkbox" id="eco" checked>
+                {% else %}
+                <input type="checkbox" name = "Economía" class="form-checkbox" id="eco">
+                {% endif %}
                 <label for="eco" class="form-option">Economía</label><br><br>
+                {% if "Industria" in applied_tags %}
+                <input type="checkbox" name = "Industria" class="form-checkbox" id="eco" checked>
+                {% else %}
                 <input type="checkbox" name = "Industria" class="form-checkbox" id="ind">
+                {% endif %}
                 <label for="ind" class="form-option">Industria</label><br><br>
-                <input type="checkbox" name = "Nacion" class="form-checkbox" id="nac">
+                {% if "Nación" in applied_tags %}
+                <input type="checkbox" name = "Nación" class="form-checkbox" id="eco" checked>
+                {% else %}
+                <input type="checkbox" name = "Nación" class="form-checkbox" id="nac">
+                {% endif %}
                 <label for="nac" class="form-option">Nación</label><br><br>
+                {% if "Deportes" in applied_tags %}
+                <input type="checkbox" name = "Deportes" class="form-checkbox" id="eco" checked>
+                {% else %}
                 <input type="checkbox" name = "Deportes" class="form-checkbox" id="dep">
+                {% endif %}
                 <label for="dep" class="form-option">Deportes</label><br><br>
-                <input type="checkbox" name = "Farandula" class="form-checkbox" id="far">
+                {% if "Farándula" in applied_tags %}
+                <input type="checkbox" name = "Farándula" class="form-checkbox" id="eco" checked>
+                {% else %}
+                <input type="checkbox" name = "Farándula" class="form-checkbox" id="far">
+                {% endif %}
                 <label for="far" class="form-option">Farándula</label><br><br>
-                <input type="checkbox" name = "Politica" class="form-checkbox" id="pol">
+                {% if "Política" in applied_tags %}
+                <input type="checkbox" name = "Política" class="form-checkbox" id="eco" checked>
+                {% else %}
+                <input type="checkbox" name = "Política" class="form-checkbox" id="pol">
+                {% endif %}
                 <label for="pol" class="form-option">Política</label><br><br>
+                {% if "Mundo" in applied_tags %}
+                <input type="checkbox" name = "Mundo" class="form-checkbox" id="eco" checked>
+                {% else %}
                 <input type="checkbox" name = "Mundo" class="form-checkbox" id="mun">
+                {% endif %}
                 <label for="mun" class="form-option">Mundo</label><br><br>
-                <input type="checkbox" name = "Opinion" class="form-checkbox" id="op">
+                {% if "Opinión" in applied_tags %}
+                <input type="checkbox" name = "Opinión" class="form-checkbox" id="eco" checked>
+                {% else %}
+                <input type="checkbox" name = "Opinión" class="form-checkbox" id="op">
+                {% endif %}
                 <label for="op" class="form-option">Opinión</label><br>
                 <input type="submit" class="submit-btn" value="Aplicar">
             </form>

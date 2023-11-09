@@ -7,14 +7,14 @@ from multiselectfield import MultiSelectField
 
 class Noticia(models.Model):
     TAGS = (
-        ('Nacion','Nacion'),
+        ('Nación','Nación'),
         ("Industria","Industria"),
-        ("Economia","Economia"),
+        ("Economía","Economía"),
         ("Deportes","Deportes"),
-        ("Farandula","Farandula"),
+        ("Farándula","Farándula"),
         ("Política","Política"),
         ("Mundo","Mundo"),
-        ("Opinion","Opinion"),
+        ("Opinión","Opinión"),
     )
 
     autor = models.CharField(max_length=30)
@@ -52,14 +52,14 @@ class CustomUserManager(BaseUserManager):
 class CustomUser(AbstractBaseUser, PermissionsMixin):
     username = models.CharField(max_length=12, unique=True)
     TAGS = (
-        ('Nacion','Nacion'),
+        ('Nación','Nación'),
         ("Industria","Industria"),
-        ("Economia","Economia"),
+        ("Economía","Economía"),
         ("Deportes","Deportes"),
-        ("Farandula","Farandula"),
+        ("Farándula","Farándula"),
         ("Política","Política"),
         ("Mundo","Mundo"),
-        ("Opinion","Opinion"),
+        ("Opinión","Opinión"),
     )
     preferences = MultiSelectField(max_length= 50, choices = TAGS)
     profile_pic = models.ImageField(null=True, blank=True, upload_to="pfp")

@@ -38,11 +38,11 @@ class RegistrarUsuario(forms.ModelForm):
         }
 
         labels = {
-            'username': 'Usuario*',
-            'password': 'Contraseña*',
-            'password2': 'Confirmar Contraseña*',
-            'preferences': 'preferencias',
-            'profile_pic': 'foto de perfil'
+            'username': 'Usuario',
+            'password': 'Contraseña',
+            'password2': 'Confirmar Contraseña',
+            'preferences': 'Preferencias',
+            'profile_pic': 'Foto de perfil'
         }
 
         

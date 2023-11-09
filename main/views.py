@@ -31,7 +31,7 @@ def publicar(request):
     
 def tendencias(request):
 
-    tags = ['Nacion','Industria', 'Economia', 'Deportes', 'Farandula','Política','Mundo','Opinion']
+    tags = ['Nación','Industria', 'Economía', 'Deportes', 'Farándula','Política','Mundo','Opinión']
     applied_tags = []
     for tag in tags:
         if request.GET.get(tag):
@@ -64,7 +64,7 @@ def tendencias(request):
 
 @login_required
 def tusnoticias(request):
-    tags = ['Nacion','Industria', 'Economia', 'Deportes', 'Farandula','Política','Mundo','Opinion']
+    tags = ['Nación','Industria', 'Economía', 'Deportes', 'Farándula','Política','Mundo','Opinión']
     applied_tags = []
     for tag in tags:
         if request.GET.get(tag):
