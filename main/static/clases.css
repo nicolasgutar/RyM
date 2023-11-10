@@ -310,6 +310,8 @@ a {
   border-radius: 50%;
   padding: 30px;
   align-self: center;
+  background-position: center;
+  background-size: cover;
 }
 .nav-link{
     padding: 1vw !important;

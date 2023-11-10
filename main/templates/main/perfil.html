@@ -11,7 +11,7 @@
     <div class="contenedor-perfil">
         <div class="bloque-perfil">
             {% if user.profile_pic %}
-                <img src = "{{ user.profile_pic.url }}" class = "imagen-perfil" alt="error cargando foto de perfil">
+                <div class="imagen-perfil" style="background-image: url('{{ user.profile_pic.url }}');"></div>
             {% else %}
                 <img src="{% static 'imagen perfil.png' %}" class="imagen-logo">
             {% endif %}
